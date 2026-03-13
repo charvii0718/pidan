@@ -1,0 +1,12 @@
+{
+  "pages": [
+    { "path": "pages/pindou/index", "style": {} },
+    { "path": "pages/other/index", "style": {} }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "皮蛋",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#F8F8F8"
+  }
+}

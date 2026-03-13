@@ -1,0 +1,35 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+.DS_Store
+dist
+*.local
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+# UniApp 相关
+unpackage/
+.DS_Store
+node_modules/
+package-lock.json
+yarn.lock
+*.log
+.vscode/
+.idea/
+dist/
+build/
+# 小程序开发者工具缓存
+.project
+.project.private
