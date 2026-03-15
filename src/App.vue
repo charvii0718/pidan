@@ -3,15 +3,10 @@
     <div class="app-content">
       <slot />
     </div>
-    <custom-tabbar />
   </div>
 </template>
 
 <script>
-import CustomTabbar from './components/CustomTabBar.vue'
-export default {
-  components: { CustomTabbar }
-}
 </script>
 
 <style>

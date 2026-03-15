@@ -2,11 +2,11 @@
   <view class="tabbar">
     <view class="top-indicator" />
     <view :class="['tab', active === 0 ? 'active' : '']" @click="switchTo(0)">
-      <image class="icon" :src="active === 0 ? '/static/icons/pindou-active.png' : '/static/icons/pindou.png'"></image>
+      <text class="icon">{{ active === 0 ? '🏠' : '🏡' }}</text>
       <text class="label">拼豆</text>
     </view>
     <view :class="['tab', active === 1 ? 'active' : '']" @click="switchTo(1)">
-      <image class="icon" :src="active === 1 ? '/static/icons/other-active.png' : '/static/icons/other.png'"></image>
+      <text class="icon">{{ active === 1 ? '⚙️' : '⚙' }}</text>
       <text class="label">其他</text>
     </view>
   </view>
@@ -102,6 +102,6 @@ export default {
   color: #7A7E83;
 }
 .tab.active .label { color: #007AFF; }
-.icon { width: 28px; height: 28px; margin-bottom: 4px; }
+.icon { font-size: 20px; margin-bottom: 4px; }
 .label { font-size: 12px; }
 </style>

@@ -1,14 +1,14 @@
 <template>
   <view class="page">
     <view class="content">其他 页面内容</view>
-    <custom-tab-bar />
+    <CustomTabbar />
   </view>
 </template>
 
 <script>
-import CustomTabBar from '@/components/CustomTabBar.vue'
+import CustomTabbar from '@/components/CustomTabbar.vue'
 export default {
-  components: { CustomTabBar }
+  components: { CustomTabbar }
 }
 </script>
 
