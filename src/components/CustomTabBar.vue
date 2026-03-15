@@ -1,5 +1,5 @@
 <template>
-  <view class="tabbar">
+  <view :class="['tabbar', { 'tabbar--no-safe-area': isMpWeixin }]">
     <view class="top-indicator" />
     <view :class="['tab', active === 0 ? 'active' : '']" @click="switchTo(0)">
       <text class="icon">{{ active === 0 ? '🏠' : '🏡' }}</text>
@@ -17,6 +17,9 @@ export default {
   data() {
     return {
       active: 0,
+      // WeChat 小程序（mp-weixin）在 iPhone 12+ 上会自动加安全区高度，避免重复加底部 padding
+      // 通过 uni-app 平台预处理指令在编译时判断
+      isMpWeixin: false,
       // 与 src/pages.json 中 pagePath 保持一致（去掉 src 前缀）
       paths: [
         '/pages/pindou/index',
@@ -25,6 +28,10 @@ export default {
     }
   },
   mounted() {
+    // #ifdef MP-WEIXIN
+    this.isMpWeixin = true
+    // #endif
+
     this.setActiveByRoute()
     if (typeof window !== 'undefined') window.addEventListener('popstate', this.setActiveByRoute)
   },
@@ -69,7 +76,7 @@ export default {
   right: 0;
   bottom: 0;
   height: 56px;
-  /* iOS 安全区 */
+  /* iOS 安全区（只有 H5 / Web 需要；微信小程序已经自行处理 safe-area） */
   padding-bottom: constant(safe-area-inset-bottom, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
   display: flex;
@@ -78,6 +85,11 @@ export default {
   z-index: 1000;
   box-sizing: border-box;
   /* 去掉上边框（已移除 border-top） */
+  background: red;
+}
+
+.tabbar--no-safe-area {
+  padding-bottom: 0;
 }
 
 /* 粉色矩形，宽度同 tabbar，高度 5px，位于 tabbar 之上 */
@@ -89,7 +101,7 @@ export default {
   height: 5px;
   background: #ff6ea6; /* 粉色，可按需调整 */
   z-index: 1001;
-  border-radius: 2px 2px 0 0;
+  /* border-radius: 2px 2px 0 0; */
 }
 
 .tab {
